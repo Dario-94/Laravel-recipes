@@ -40,6 +40,7 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 Route::group(['middleware' => ['web', 'auth']], function () {
+    //search recipe
     Route::post('/recipe/search', ['as' => 'queries.search', 'uses' => 'ControllerRecipe@search']);
     
     //create recipe

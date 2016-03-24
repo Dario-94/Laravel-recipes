@@ -19,17 +19,17 @@
                                 </td>
                                 <td>
                                     <div>
-                                        {{ Form::open(array('url' => 'recipe/' . $recipes->id, 'class' => 'pull-right')) }}
-                                        {{ Form::hidden('_method', 'DELETE') }}
-                                        {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                                        {{ Form::close() }}
-                                    </div>
-                                    <a type="button" class="btn btn-success" href="{{ route('recipe.edit' , $recipes->id) }}">
-                                        Modify
-                                    </a>
+                                        <a type="button" class="btn btn-danger" id="button1" href="{{ route('recipe.destroy' , $recipes->id) }}">
+                                            Delete recipe
+                                        </a>
+                                        <a type="button" class="btn btn-info" id="button2" href="{{ route('recipe.show' , $recipes->id) }}">
+                                            Show recipe
+                                        </a>
+                                        <a type="button" class="btn btn-success" id="button3" href="{{ route('recipe.edit' , $recipes->id) }}">
+                                            Modify recipe
+                                        </a> 
                                     </div>
                                 </td>
-                                     
                             </tr>
                         @endforeach
                     </tbody>
