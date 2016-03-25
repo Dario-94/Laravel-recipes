@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Recipe;
 use Auth;
 use App\Ingredient;
-use App\User;
+use App\User; 
 
 use App\Http\Requests;
 
@@ -75,8 +75,8 @@ class ControllerRecipe extends Controller
      */
     public function show($id)
     {
+        
         $recipe = Recipe::find($id);
-
         return view('recipe.show')->with('recipe', $recipe);
     }
 
@@ -92,6 +92,7 @@ class ControllerRecipe extends Controller
         $ingredients = Ingredient::lists('name', 'id');
 
         return view('recipe.edit', compact('ingredients', 'recipe'));
+        
     }
 
     /**

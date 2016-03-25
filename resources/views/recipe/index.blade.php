@@ -19,15 +19,27 @@
                                 </td>
                                 <td>
                                     <div>
+                                        @if(Auth::user()->id == $recipes->user_id)
                                         <a type="button" class="btn btn-danger" id="button1" href="{{ route('recipe.destroy' , $recipes->id) }}">
                                             Delete recipe
                                         </a>
+                                        @else
+                                        <a type="button" class="btn btn-danger" disabled="disabled" id="button1">
+                                            Delete recipe
+                                        </a>
+                                        @endif
                                         <a type="button" class="btn btn-info" id="button2" href="{{ route('recipe.show' , $recipes->id) }}">
                                             Show recipe
                                         </a>
+                                        @if(Auth::user()->id == $recipes->user_id)
                                         <a type="button" class="btn btn-success" id="button3" href="{{ route('recipe.edit' , $recipes->id) }}">
                                             Modify recipe
                                         </a> 
+                                        @else
+                                        <a type="button" class="btn btn-success" disabled="disabled" id="button3">
+                                            Modify recipe
+                                        </a> 
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
