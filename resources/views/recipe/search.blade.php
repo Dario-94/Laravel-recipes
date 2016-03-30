@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Search results:</h1>
+<h1>Recipes:</h1>
     @foreach($recipe as $recipes)
     @if (count($recipe) === 0)
         Recipes not found

@@ -2,7 +2,7 @@
 @section('content')
 <!DOCTYPE html>
     <h1>Bomber Recipes</h1>
-    <p>Welcome to the RecipesBlog</p>
+    <p>Welcome to the RecipesSite</p>
     <table class="table table-striped table-bordered">
                     <tbody>
                         <td class="table-text"><b>Title</b></td>
@@ -18,27 +18,31 @@
                                     <div>{{ $recipes->description }}</div>
                                 </td>
                                 <td>
-                                    <div>
                                         @if(Auth::user()->id == $recipes->user_id)
-                                        <a type="button" class="btn btn-danger" id="button1" href="{{ route('recipe.destroy' , $recipes->id) }}">
-                                            Delete recipe
-                                        </a>
+                                        {!! Form::open([
+                                            'method' => 'DELETE',
+                                            'route' => ['recipe.destroy', $recipes->id]
+                                            ]) !!}
+                                        <div class="col-sm-4">
+                                            {!! Form::submit('Delete recipe', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                        </div>
+                                            <a style="margin-left:-6px;" type="button" class="btn btn-info" href="{{ route('recipe.show' , $recipes->id) }}">
+                                            Show recipe
+                                            </a>
+                                            <a style="margin-left:-1px;" type="button" class="btn btn-success" href="{{ route('recipe.edit' , $recipes->id) }}">
+                                                Modify recipe
+                                            </a>
                                         @else
-                                        <a type="button" class="btn btn-danger" disabled="disabled" id="button1">
+                                        <a style="margin-left:15px;"type="button" class="btn btn-danger" disabled="disabled">
                                             Delete recipe
                                         </a>
-                                        @endif
-                                        <a type="button" class="btn btn-info" id="button2" href="{{ route('recipe.show' , $recipes->id) }}">
+                                        <a type="button" class="btn btn-info" href="{{ route('recipe.show' , $recipes->id) }}">
                                             Show recipe
                                         </a>
-                                        @if(Auth::user()->id == $recipes->user_id)
-                                        <a type="button" class="btn btn-success" id="button3" href="{{ route('recipe.edit' , $recipes->id) }}">
+                                         <a type="button" class="btn btn-success" disabled="disabled">
                                             Modify recipe
-                                        </a> 
-                                        @else
-                                        <a type="button" class="btn btn-success" disabled="disabled" id="button3">
-                                            Modify recipe
-                                        </a> 
+                                        </a>
                                         @endif
                                     </div>
                                 </td>

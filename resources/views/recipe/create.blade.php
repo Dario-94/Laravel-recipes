@@ -27,7 +27,7 @@
 @section('footer')
 <script type="text/javascript">
   $('#ingredient_list').select2({
-        placeholder: 'Scegliere o aggiungere gli ingredienti' ,
+        placeholder: 'Add ingredients' ,
         tags: true,
         tokenSeparators: [",", " "],
         createTag: function(newIngredient) {

@@ -142,7 +142,7 @@ class ControllerRecipe extends Controller
         $recipe = Recipe::find($id);
         $recipe->delete();
         
-        return redirect('recipe');
+        return redirect()->route('recipe.index');
     }
     
     public function search(Request $request)

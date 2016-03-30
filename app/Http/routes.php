@@ -59,5 +59,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::put('/recipe/{id}', ['as' => 'recipe.update', 'uses' => 'ControllerRecipe@update']);
     
     //delete recipe
-    Route::delete('/recipe/{id}', ['as' => 'recipe.destroy', 'uses' => 'ControllerRecipe@destroy']);
+    Route::delete('/recipe/{id}/delete', ['as' => 'recipe.destroy', 'uses' => 'ControllerRecipe@destroy']);
 });
